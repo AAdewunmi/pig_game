@@ -1,11 +1,13 @@
 /*
 GAME RULES:
 
-- The game has 2 players, playing in rounds
+- The game has 2 players, playing in rounds:
 - In each turn, a player rolls a dice as many times as he wishes. Each result get added to his ROUND score
 - BUT, if the player rolls a 1, all his ROUND score gets lost. After that, it's the next player's turn
 - The player can choose to 'Hold', which means that his ROUND score gets added to his GLOBAL score. After that, it's the next player's turn
 - The first player to reach 100 points on GLOBAL score wins the game
+- A player looses his ENTIRE score when he rolls two 6'es in a row. After that, it's the next player's turn.
+Players can set the winning score (in an input field), so that they can change the predefined score of 100.
 
 */
 /*
@@ -16,6 +18,8 @@ var scores, roundScore, activePlayer, gamePlaying;
 
 //Initialise Variables (Array, Integer)
 init();
+
+var lastDice;
 
 //Roll Dice button implementation
 document.querySelector('.btn-roll').addEventListener('click', function(){
@@ -28,7 +32,12 @@ document.querySelector('.btn-roll').addEventListener('click', function(){
             diceDom.style.display = 'block';
             diceDom.src = 'dice-' + dice + '.png';
             //Update the round score IF the rolled number was NOT a 1
-            if(dice > 1){
+            if(dice === 6 && lastDice === 6){
+               //Player looses score
+               scores[activePlayer] = 0;
+               document.querySelector('#score-' + activePlayer).textContent = '0';
+               nextPlayer();
+               }else if(dice !== 1){
                 //Player 1 (add score)
                 roundScore += dice;
                 document.querySelector('#current-' + activePlayer).textContent = roundScore;
@@ -36,8 +45,8 @@ document.querySelector('.btn-roll').addEventListener('click', function(){
                 //Player 2 (add score)
                 nextPlayer();
             }
+                lastDice = dice;
        }
-
 });
 
 //DOM manipulation
@@ -53,8 +62,19 @@ document.querySelector('.btn-hold').addEventListener('click', function(){
         //Update the UI
         document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
 
+        var input = document.querySelector('.final-score').value;
+
+        //Undefined, 0, null or "" are COERCED to false
+        //Anything else is COERCED to true
+        var winningScore;
+
+        if(input){
+            winningScore = input;
+        }else{
+            winningScore = 100;
+        }
         //Check if player wins the game
-        if(scores[activePlayer] >= 100){
+        if(scores[activePlayer] >= winningScore){
            document.querySelector('#name-' + activePlayer).textContent = 'Winner!';
            document.querySelector('.dice').style.display = 'none';
            document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
