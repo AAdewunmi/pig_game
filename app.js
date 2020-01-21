@@ -79,6 +79,7 @@ document.querySelector('.btn-hold').addEventListener('click', function(){
            document.querySelector('.dice').style.display = 'none';
            document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
            document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
+           document.querySelector('.player-'+ activePlayer + '-panel').style.backgroundImage = "url(winwin.png)";
            gamePlaying = false;
             }else{
             //Next player
