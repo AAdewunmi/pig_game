@@ -133,4 +133,11 @@ function init(){
 
 };
 
+// Clicking for instructions
+document.querySelector(".instructions").addEventListener("click", function(){
+        document.querySelector(".modal").classList.add("show");
+        document.querySelector(".close").addEventListener("click", function(){
+            document.querySelector(".modal").classList.remove("show");
+    });
+});
 

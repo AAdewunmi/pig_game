@@ -11,6 +11,21 @@
 
     <body>
 
+        <h1>The Pig Game 🐷</h1>
+        <p class="instructions">Rules of the Game</p>
+        <div class="modal">
+            <h2>The rules of the game</h2>
+            <p>- The game has 2 players, playing in rounds.</p>
+            <p>- In each turn, a player rolls a dice as many times as he whishes. Each result get added to his ROUND score.</p>
+            <p>- BUT, if the player rolls a 1, all his ROUND score gets lost. After that, it's the next player's turn.</p>
+            <p>- The player can choose to 'Hold', which means that his ROUND score gets added to his GLOBAL score. After that, it's the next player's turn.</p>
+            <p>- The first player to reach 100 points on GLOBAL score wins the game.</p>
+            <p>- A player looses his ENTIRE score when he rolls two 6'es in a row. After that, it's the next player's turn.</p>
+            <p>- Players can set the winning score (in an input field), so that they can change the predefined score of 100.</p>
+
+            <button class="close"><i class="ion-ios-close"></i>Close</button>
+        </div>
+
         <div class="wrapper clearfix">
             <div class="player-0-panel active">
                 <div class="player-name" id="name-0">Player 1</div>
@@ -22,7 +37,6 @@
             </div>
 
             <div class="player-1-panel">
-
                 <div class="player-name" id="name-1">Player 2</div>
                 <div class="player-score" id="score-1">72</div>
                 <div class="player-current-box">

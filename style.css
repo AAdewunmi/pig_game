@@ -1,6 +1,80 @@
 /**********************************************
 *** GENERAL
 **********************************************/
+html {
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+h1 {
+    text-align: center;
+    color: white;
+}
+
+h2 {
+    text-align: center;
+    color: white;
+    margin-bottom: 40px;
+}
+
+p {
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+}
+
+p:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.modal {
+    top: 0;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1;
+    display: none;
+    padding: 20px;
+    transition: all 800ms ease-in;
+}
+
+.modal p {
+    text-decoration: none;
+    font-size: 21px;
+    cursor: default;
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+
+}
+
+.modal button {
+    color: white;
+    margin-top: 50px;
+}
+
+.show {
+    display: block;
+    padding-top: 20px;
+    opacity: 1;
+}
+
+.hide {
+    display: none;
+    opacity: 0;
+}
 .final-score{
     position: absolute;
     left: 50%;
