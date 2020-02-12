@@ -22,6 +22,21 @@ Players can set the winning score (in an input field), so that they can change t
 
 ---
 
+Installation: 
 
-This is a JavaScript implementation of the Pig Game (https://en.wikipedia.org/wiki/Pig_(dice_game). 
-A simple dice game for 2 players (split screen). Starter code forked from Jonas Schmedtmann.
+Download or clone the repository and start the game by opening index.html page in your desired browser.
+
+```sh
+$ git clone https://github.com/AAdewunmi/pig_game.git
+$ cd pig_game
+```
+
+---
+
+License
+----
+
+MIT
+
+
+**Source** - [Jonas Schmedtmann]: <https://github.com/jonasschmedtmann>
